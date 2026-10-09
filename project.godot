@@ -1,0 +1,25 @@
+config_version=5
+
+[application]
+config/name="Market.io"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/description="Build a tiny shop into a business empire in a colorful third-person 3D simulator."
+config/version="0.1.0"
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/handheld/orientation=1
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+environment/defaults/default_clear_color=Color(0.53, 0.72, 0.82, 1)
+
+[physics]
+3d/default_gravity=9.8
