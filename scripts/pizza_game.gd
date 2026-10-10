@@ -216,7 +216,6 @@ func _build_hud() -> void:
 	controls.add_child(left_col)
 	var up := _make_button("▲", Vector2(68, 48))
 	left_col.add_child(up)
-	up.pressed.connect(func(): movement.y = -1.0)
 	var horizontal := HBoxContainer.new()
 	left_col.add_child(horizontal)
 	var left := _make_button("◀", Vector2(68, 48))
