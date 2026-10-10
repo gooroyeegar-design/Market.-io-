@@ -379,12 +379,10 @@ func _update_customers(delta: float) -> void:
 		if not is_instance_valid(customer):
 			customers.remove_at(i)
 			continue
-		var target := Vector3(3.0, 0.0, -0.5)
+		var target := Vector3(3.0, 0.0, 0.25)
 		var diff := target - customer.position
 		if diff.length() > 0.2:
 			customer.position += diff.normalized() * delta * 1.15
-		elif customer.position.z < 0.2:
-			customer.position.z = 0.25
 		if customer.position.distance_to(Vector3(3.0, 0.0, -0.5)) < 0.6 and pizzas > 0 and workers > 0:
 			_sell_pizza()
 			customer.queue_free()
