@@ -50,13 +50,20 @@ jobs:
           mkdir -p "$HOME/.android"
           keytool -genkeypair -v -keystore "$HOME/.android/debug.keystore" -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
 
+      - name: Verify Android export prerequisites
+        run: |
+          cat "$HOME/.config/godot/editor_settings-4.tres"
+          test -d "$ANDROID_HOME/ndk/23.2.8568313"
+          test -d "$ANDROID_HOME/cmake/3.10.2.4988404"
+          test -s "$HOME/.android/debug.keystore"
+
       - name: Validate project in headless editor
         run: godot --headless --editor --editor-settings "$HOME/.config/godot/editor_settings-4.tres" --path . --quit
 
       - name: Export Android debug APK
         run: |
           mkdir -p build
-          godot --headless --editor-settings "$HOME/.config/godot/editor_settings-4.tres" --path . --export-debug "Android" build/Market.io.apk
+          godot --verbose --headless --editor-settings "$HOME/.config/godot/editor_settings-4.tres" --path . --export-debug "Android" build/Market.io.apk
 
       - name: Verify APK exists
         run: test -s build/Market.io.apk
