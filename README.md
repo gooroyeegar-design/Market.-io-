@@ -1,27 +1,30 @@
-# Market.io
+# Market.io — 3D Pizza Tycoon
 
-A stylized third-person 3D shop-management game for Android.
+A mobile-first, third-person 3D pizza-shop management game built with Godot 4.
 
-Start with a tiny store, restock products, serve customers, earn cash, and grow toward a business empire.
+## Play loop
 
-## Current prototype
+- Explore a warm, stylized 3D pizzeria with a controllable character and follow camera.
+- Start with one brick pizza oven, a prep counter, a serving counter, and **$65**.
+- Walk close to the oven and tap **Cook Pizza** to spend $5 on ingredients.
+- Walk to the counter and tap **Serve Customer** to sell a pizza for $14.
+- Reinvest earnings to unlock dining tables and extra ovens, then hire workers who automate serving.
+- Touch movement controls are included for Android, with keyboard support for desktop testing.
 
-- Procedurally built 3D shop, shelves, products, checkout, lighting, and a third-person camera.
-- Controllable player with keyboard and touch-friendly movement controls.
-- Customers browse and purchase products when stock is available.
-- Restocking costs money; sales add cash.
-- On-screen cash, inventory, sales, and customer counters.
-- Mobile-friendly GL Compatibility renderer.
+## Build locally
 
-## Build
+Open the repository in Godot 4.4.x or later, then run `main.tscn`.
 
-Open the project in Godot 4.4.x and run main.tscn.
+## Android APK
 
-The GitHub Actions workflow checks the project and attempts an Android debug APK export. A Google Play release requires an Android App Bundle (AAB), a release signing key, store listing assets, and Play Console review. Never commit a keystore or signing passwords. Those must be configured as GitHub Actions secrets before a signed release can be produced.
+Every push to `main` and every manual workflow dispatch runs the **Market.io Android Build** workflow. It validates the Godot project, exports an Android debug APK, and uploads `Market.io-Android-APK` as a downloadable workflow artifact.
 
-## Planned next milestones
+1. Open the repository's **Actions** tab.
+2. Select **Market.io Android Build**.
+3. Open the latest successful run and download **Market.io-Android-APK**.
 
-1. Verify Android build and improve touch controls.
-2. Add shelf restock animations, product pickup/placement, employee hiring, and store expansion.
-3. Add save/load, sound, settings, pause menu, and device-performance testing.
-4. Configure a signed AAB build and complete Google Play compliance checks.
+The debug APK is for testing. Google Play publication requires release signing, an Android App Bundle (AAB), store listing assets, policy checks, and Play Console review. Keep signing keys and passwords in GitHub Actions secrets; never commit them.
+
+## Current scope
+
+This is a playable foundation, not a claim of store-ready production quality. Save/load, audio, richer animations, additional rooms, expanded staff AI, device testing, and a signed release pipeline remain future milestones.
