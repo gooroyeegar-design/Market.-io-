@@ -58,12 +58,12 @@ jobs:
           test -s "$HOME/.android/debug.keystore"
 
       - name: Validate project in headless editor
-        run: godot --headless --editor --editor-settings "$HOME/.config/godot/editor_settings-4.tres" --path . --quit
+        run: godot --headless --editor --editor-settings "$HOME/.config/godot/editor_settings-4.4.tres" --path . --import --quit
 
       - name: Export Android debug APK
         run: |
           mkdir -p build
-          godot --verbose --headless --editor-settings "$HOME/.config/godot/editor_settings-4.tres" --path . --export-debug "Android" build/Market.io.apk
+          godot --verbose --headless --editor --editor-settings "$HOME/.config/godot/editor_settings-4.4.tres" --path . --export-debug "Android" build/Market.io.apk
 
       - name: Verify APK exists
         run: test -s build/Market.io.apk
